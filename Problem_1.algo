@@ -41,10 +41,10 @@ VAR
     arr : ARRAY_OF INTEGER[];
     i,sum:INTEGER
 BEGIN
-    FOR i FROM 0 TO set1.length()  DO
+    FOR i FROM 0 TO set1.length-1  DO
         htab.insert(set1[i],1)
     END_FOR
-    FOR i FROM 0 TO set2.length DO
+    FOR i FROM 0 TO set2.length-1  DO
         IF (htab.lookup(set2[i])==true) THEN
             count:=htab.get(set2[i])
             htab.insert(set2[i],count+1)
@@ -53,10 +53,10 @@ BEGIN
             END_IF
     END_FOR
 
-    arr:=htab.keySet()	
+    arr:=htab.getkeys()	
 
-    FOR i FROM 0 TO arr.length DO
-        IF (htab;get(arr[i])>1) THEN
+    FOR i FROM 0 TO arr.length -1 DO
+        IF (htab.get(arr[i])=1) THEN
             sum+=arr[i]
         END_IF
     END_FOR
